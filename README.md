@@ -1,45 +1,73 @@
-# dayfolio
+# React + TypeScript + Vite
 
-Bullet Journal 스타일 PWA 습관 트래커.
-매일 체크인하고, Monthly Spread로 한 달을 한눈에.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
----
+Currently, two official plugins are available:
 
-## 화면 구성
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-| 경로 | 화면 | 설명 |
-|------|------|------|
-| `/` | Today | 오늘 습관 체크인, 메모, 기분/수면 기록 |
-| `/monthly` | Monthly Spread | 이번 달 Daily Log + Habit Grid |
-| `/stats` | 통계 | 달성률 차트, 스트릭 현황 |
-| `/settings` | 설정 | 습관/카테고리 관리, 리마인더 |
+## React Compiler
 
-## 기술 스택
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-- **React 19** + TypeScript + Vite 6
-- **Zustand** — 단일 store, localStorage 퍼시스턴스
-- **Tailwind CSS v4** — `@theme` 기반 디자인 토큰
-- **Motion** (`motion/react`) — 페이지 전환 & 인터랙션
-- **date-fns** — 날짜 처리
-- **Recharts** — 통계 차트
-- **PWA** (`vite-plugin-pwa`) — 홈화면 설치, 오프라인
+## Expanding the ESLint configuration
 
-## 시작하기
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```bash
-pnpm install
-pnpm dev
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
 
-## 빌드
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```bash
-pnpm build
-pnpm preview
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
-
-## 문서
-
-- [PRD](docs/PRD.md) — 제품 요구사항
-- [SPEC](docs/SPEC.md) — 기술 스펙 (데이터 모델, Store, API)
-- [CLAUDE.md](CLAUDE.md) — 개발 규칙 및 디자인 시스템
