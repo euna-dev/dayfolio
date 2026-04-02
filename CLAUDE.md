@@ -250,6 +250,23 @@ Conventional Commits 기반. 형식: `<type>(<scope>): <subject>`
 - 제목 72자 이내
 - 본문이 필요하면 빈 줄 한 칸 후 작성
 
+## 브랜치 & PR 규칙
+
+### 브랜치 네이밍
+이슈 타입과 번호를 조합: `<type>/<issue-number>`
+
+| 예시 | 설명 |
+|------|------|
+| `feat/5` | 기능 구현 이슈 #5 |
+| `fix/12` | 버그 수정 이슈 #12 |
+| `chore/1` | 설정/빌드 이슈 #1 |
+| `style/3` | 스타일 이슈 #3 |
+
+### PR 규칙
+- **base 브랜치**: 항상 `dev` (main 직접 PR 금지)
+- **PR 템플릿** 반드시 사용 (`.github/PULL_REQUEST_TEMPLATE.md`)
+- 이슈 번호 연결: `closes #<issue-number>`
+
 ## 스펙 참조
 - PRD: `docs/PRD.md`
 - 기술 스펙: `docs/SPEC.md`
