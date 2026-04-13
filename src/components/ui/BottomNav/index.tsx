@@ -108,7 +108,7 @@ export default function BottomNav() {
       className="fixed bottom-0 left-0 right-0 bg-surface border-t border-border"
       style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
     >
-      <ul className="flex items-stretch h-16">
+      <ul className="flex items-stretch h-16 max-w-md mx-auto">
         {NAV_ITEMS.map(({ to, label, icon }) => (
           <li key={to} className="flex-1">
             <NavLink
