@@ -14,7 +14,7 @@
   /* 포인트 — Moss Green */
   --color-accent: #839958;
   --color-accent-soft: #eef0e0;
-  --color-accent-hover: #105666;
+  --color-accent-hover: #105656;
 
   /* 상태 */
   --color-done: #839958;
@@ -32,15 +32,6 @@
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 20px;
-}
-
-/* CSS Reset */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html {
@@ -65,7 +56,6 @@ svg {
 button {
   cursor: pointer;
   background: none;
-  border: none;
   font: inherit;
 }
 

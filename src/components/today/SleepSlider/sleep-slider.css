@@ -1,0 +1,29 @@
+input[type="range"].sleep-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 9999px;
+  background: var(--color-ink-faint);
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"].sleep-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: var(--color-accent);
+  cursor: pointer;
+  border: none;
+}
+
+input[type="range"].sleep-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: var(--color-accent);
+  cursor: pointer;
+  border: none;
+}
